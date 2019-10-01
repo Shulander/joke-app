@@ -1,21 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8"/>
     <title>Spring Framework Guru</title>
 </head>
 <body>
 <h1>Chuck norris joke</h1>
-
-<table>
-    <tr>
-        <th>Quote</th>
-    </tr>
-    <tr>
-        <!--/*@thymesVar id="joke" type="String"*/-->
-        <td th:text="${joke}">123</td>
-    </tr>
-</table>
+<p th:text="${joke}">123</p>
 
 </body>
 </html>
