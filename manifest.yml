@@ -1,0 +1,11 @@
+---
+applications:
+  - name: joke-app
+    memory: 512M
+    instances: 1
+    path: target/joke-app-0.0.1-SNAPSHOT.jar
+    buildpack: https://github.com/cloudfoundry/java-buildpack.git
+    env:
+      SPRING_PROFILES_ACTIVE: cloud
+      JAVA_OPTS: '-Xss349k'
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ }}'
