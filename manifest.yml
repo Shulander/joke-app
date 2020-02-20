@@ -1,10 +1,15 @@
+#cf create-app-manifest joke-app
 ---
 applications:
   - name: joke-app
     memory: 512M
+    disk_quota: 1G
     instances: 1
     path: target/joke-app-0.0.1-SNAPSHOT.jar
     buildpack: https://github.com/cloudfoundry/java-buildpack.git
+    routes:
+      - route: joke-app.cfapps.io
+    stack: cflinuxfs3
     env:
       SPRING_PROFILES_ACTIVE: cloud
       JAVA_OPTS: '-Xss349k'
