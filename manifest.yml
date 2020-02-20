@@ -14,3 +14,5 @@ applications:
       SPRING_PROFILES_ACTIVE: cloud
       JAVA_OPTS: '-Xss349k'
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ }}'
+    health-check-http-endpoint: /actuator/health
+    health-check-type: http
