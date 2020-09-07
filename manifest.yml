@@ -2,7 +2,7 @@
 ---
 applications:
   - name: joke-app
-    memory: 512M
+    memory: 256M
     disk_quota: 1G
     instances: 1
     path: target/joke-app-0.0.1-SNAPSHOT.jar
@@ -12,7 +12,8 @@ applications:
     stack: cflinuxfs3
     env:
       SPRING_PROFILES_ACTIVE: cloud
-      JAVA_OPTS: '-Xss349k'
-      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ }}'
+      JAVA_OPTS: '-Xss512k -XX:ReservedCodeCacheSize=100M -XX:MaxDirectMemorySize=10M -XX:MaxMetaspaceSize=61729K'
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ }, memory_calculator: {stack_threads: 50}}'
+#      JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{ enabled: true }'
     health-check-http-endpoint: /actuator/health
     health-check-type: http
